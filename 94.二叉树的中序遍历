@@ -34,3 +34,27 @@ public:
     }
     
 };
+//递归做法
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector<int >vec;
+    vector<int> inorderTraversal(TreeNode* root) {
+        if(root==NULL)
+            return vec;
+        if(root->left) inorderTraversal(root->left);//无所谓返回值,也能做递归
+        vec.push_back(root->val);
+        if(root->right) inorderTraversal(root->right);
+
+       return vec; 
+    }
+  
+};
