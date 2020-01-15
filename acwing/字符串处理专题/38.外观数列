@@ -27,3 +27,36 @@ public:
         return dp[n];
     } 
 };
+方法2：递归dp数组改成countAndSay(n-1)
+class Solution {
+public:
+    string countAndSay(int n) {
+        
+        if(n<=1)
+        {
+            return "1";
+        }
+        
+            string str=countAndSay(n-1);
+            string res="";
+            int count=1;
+            for(int i=0;i<str.length();i++)
+            {
+                // cout<<i<<endl;
+                if(str[i+1]!='\0'&&str[i]==str[i+1]) 
+                   {
+                       
+                       count++;
+                    }
+                else
+                {
+                    res+=std::to_string(count)+str[i];
+                  
+                    count=1;
+                   //cout<<dp[k]<<endl;
+                }
+            }
+        
+        return res;
+    } 
+};
